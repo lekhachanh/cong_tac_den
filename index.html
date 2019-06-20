@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let BongDen = function () {
+        this.trangThai = true;
+        this.bat = function () {
+            this.trangThai = true;
+        };
+        this.tat = function () {
+            this.trangThai =false;
+         };
+        this.getTrangThai = function () {
+            return this.trangThai;
+        };
+        this.in = function () {
+            if (this.getTrangThai() === true) {
+                alert('Đèn sáng');
+            }else {
+                alert('Đèn tắt');
+            }
+        }
+    };
+    let CongTac = function () {
+        this.connectToLamp = function (electricLamp) {
+            this.electricLamp = electricLamp;
+        };
+        this.switchOff = function () {
+            this.electricLamp.tat();
+        };
+        this.switchOn = function () {
+            this.electricLamp.bat();
+        };
+    };
+    let electricLamp = new BongDen();
+    let switchButton = new CongTac();
+    switchButton.connectToLamp(electricLamp);
+    switchButton.switchOn();
+    electricLamp.in();
+    switchButton.switchOff();
+    electricLamp.in();switchButton.switchOn();
+    electricLamp.in();
+    switchButton.switchOff();
+    electricLamp.in();
+
+
+
+
+</script>
+</body>
+</html>
